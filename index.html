@@ -12,7 +12,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif
+font-family:'Poppins',sans-serif;
 }
 
 body{
@@ -21,6 +21,7 @@ color:white;
 scroll-behavior:smooth;
 }
 
+/* NAVIGATION */
 nav{
 position:fixed;
 width:100%;
@@ -44,6 +45,7 @@ nav a:hover{
 color:#38bdf8;
 }
 
+/* HERO */
 .hero{
 height:100vh;
 background:url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80") center/cover;
@@ -82,6 +84,7 @@ font-size:1.1rem;
 color:#cbd5e1;
 }
 
+/* BUTTON */
 .btn{
 margin-top:25px;
 padding:14px 30px;
@@ -99,6 +102,7 @@ transform:scale(1.08);
 box-shadow:0 0 25px #38bdf8;
 }
 
+/* SECTIONS */
 section{
 padding:120px 80px;
 }
@@ -110,6 +114,7 @@ color:#38bdf8;
 text-align:center;
 }
 
+/* PROJECTS */
 .projects{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -146,6 +151,7 @@ text-decoration:none;
 font-weight:500;
 }
 
+/* SKILLS */
 .skills{
 display:flex;
 flex-wrap:wrap;
@@ -167,6 +173,7 @@ color:#020617;
 transform:scale(1.1);
 }
 
+/* CONTACT */
 .contact{
 background:url("https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=80") center/cover;
 position:relative;
@@ -191,6 +198,17 @@ border-radius:18px;
 text-align:center;
 backdrop-filter:blur(12px);
 }
+
+/* CONTACT LINKS WHITE */
+.contact a{
+color:white;
+text-decoration:none;
+font-weight:500;
+}
+
+.contact a:hover{
+color:#38bdf8;
+}
 </style>
 </head>
 
@@ -211,11 +229,11 @@ backdrop-filter:blur(12px);
 <p>AI Developer building intelligent real-world applications.</p>
 
 <a href="Rishika_Singhal_Resume.pdf" target="_blank">
-  <button class="btn">View CV</button>
+<button class="btn">View CV</button>
 </a>
 
 <a href="Rishika_Singhal_Resume.pdf" download>
-  <button class="btn">Download CV</button>
+<button class="btn">Download CV</button>
 </a>
 
 </div>
@@ -223,7 +241,6 @@ backdrop-filter:blur(12px);
 
 <section id="projects">
 <h2 class="title">Projects</h2>
-
 <div class="projects">
 
 <div class="card">
