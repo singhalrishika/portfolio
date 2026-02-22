@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rishika Singhal | AI Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif
+}
+
+body{
+background:linear-gradient(135deg,#020617,#0f172a);
+color:white;
+scroll-behavior:smooth;
+}
+
+nav{
+position:fixed;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:20px 80px;
+background:rgba(2,6,23,0.7);
+backdrop-filter:blur(12px);
+z-index:1000;
+}
+
+nav a{
+color:#cbd5e1;
+margin-left:30px;
+text-decoration:none;
+transition:.3s;
+font-weight:500;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+
+.hero{
+height:100vh;
+background:url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80") center/cover;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+position:relative;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(2,6,23,0.75);
+top:0;
+left:0;
+}
+
+.hero div{
+position:relative;
+z-index:1;
+}
+
+.hero h1{
+font-size:3.8rem;
+background:linear-gradient(90deg,#38bdf8,#2563eb);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+margin-top:20px;
+font-size:1.1rem;
+color:#cbd5e1;
+}
+
+.btn{
+margin-top:25px;
+padding:14px 30px;
+border:none;
+border-radius:8px;
+background:linear-gradient(90deg,#2563eb,#38bdf8);
+color:white;
+cursor:pointer;
+transition:.4s;
+font-weight:600;
+}
+
+.btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 25px #38bdf8;
+}
+
+section{
+padding:120px 80px;
+}
+
+.title{
+font-size:2.5rem;
+margin-bottom:60px;
+color:#38bdf8;
+text-align:center;
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:35px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:18px;
+overflow:hidden;
+backdrop-filter:blur(15px);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-15px);
+box-shadow:0 0 35px rgba(56,189,248,0.7);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card-content{
+padding:25px;
+}
+
+.card-content a{
+color:#38bdf8;
+text-decoration:none;
+font-weight:500;
+}
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:18px;
+justify-content:center;
+}
+
+.skill{
+background:rgba(255,255,255,0.06);
+padding:12px 22px;
+border-radius:10px;
+transition:.3s;
+font-weight:500;
+}
+
+.skill:hover{
+background:#38bdf8;
+color:#020617;
+transform:scale(1.1);
+}
+
+.contact{
+background:url("https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=80") center/cover;
+position:relative;
+}
+
+.contact::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(2,6,23,0.85);
+top:0;
+left:0;
+}
+
+.contact-box{
+position:relative;
+z-index:1;
+background:rgba(255,255,255,0.05);
+padding:60px;
+border-radius:18px;
+text-align:center;
+backdrop-filter:blur(12px);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div><b>Rishika.dev</b></div>
+<div>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<section class="hero">
+<div>
+<h1>Rishika Singhal</h1>
+<p>AI Developer building intelligent real-world applications.</p>
+
+<a href="Rishika_Singhal_Resume.pdf" target="_blank">
+  <button class="btn">View CV</button>
+</a>
+
+<a href="Rishika_Singhal_Resume.pdf" download>
+  <button class="btn">Download CV</button>
+</a>
+
+</div>
+</section>
+
+<section id="projects">
+<h2 class="title">Projects</h2>
+
+<div class="projects">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>PinkCare AI</h3>
+<a href="https://pink-care-ai.vercel.app">Live Demo</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>Recipe Hub</h3>
+<a href="https://singhalrishika.github.io/RishikaRecipieHub/">Live Demo</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>Expense Sharing</h3>
+<a href="https://singhalrishika.github.io/ExpenseSharingApp/">Live Demo</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>DeafMute SOS</h3>
+<a href="https://singhalrishika.github.io/DeafMuteSOS/">Live Demo</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="skills">
+<h2 class="title">Skills</h2>
+<div class="skills">
+<div class="skill">Python</div>
+<div class="skill">Machine Learning</div>
+<div class="skill">MySQL</div>
+<div class="skill">C</div>
+<div class="skill">HTML</div>
+<div class="skill">CSS</div>
+<div class="skill">C++</div>
+<div class="skill">JavaScript</div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div class="contact-box">
+<h2 class="title">Contact</h2>
+<p>Email: rishikasinghal01012005@gmail.com</p>
+<p>
+<a href="https://www.linkedin.com/in/rishikasinghal115">LinkedIn</a> |
+<a href="https://github.com/singhalrishika">GitHub</a>
+</p>
+<p><a href="https://forms.gle/fip5irMtWCHpxaMYA">Apply / Contact Form</a></p>
+</div>
+</section>
+
+</body>
+</html>
