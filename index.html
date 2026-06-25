@@ -14,7 +14,7 @@
         :root {
             --bg: #030712;
             --card: #111827;
-            --accent: #8b5cf6; /* Modern Purple */
+            --accent: #8b5cf6;
             --accent-light: #c4b5fd;
             --text-primary: #f9fafb;
             --text-secondary: #9ca3af;
@@ -24,147 +24,175 @@
         body { background-color: var(--bg); color: var(--text-primary); line-height: 1.6; }
 
         /* Navigation */
-        nav { padding: 1.5rem 10%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; background: rgba(3, 7, 18, 0.8); backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .logo { font-weight: 800; font-size: 1.4rem; background: linear-gradient(to right, var(--accent), #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        nav { padding: 1.2rem 10%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; background: rgba(3, 7, 18, 0.8); backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-weight: 800; font-size: 1.4rem; color: var(--accent); text-decoration: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
 
         /* Hero Section */
-        .hero { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 20px; background: radial-gradient(circle at center, rgba(139, 92, 246, 0.15) 0%, transparent 70%); }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; letter-spacing: -2px; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin-bottom: 2rem; }
+        .hero { height: 90vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 20px; background: radial-gradient(circle at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%); }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; letter-spacing: -2px; margin-bottom: 1rem; line-height: 1.1; }
+        .hero p { font-size: 1.2rem; color: var(--text-secondary); max-width: 650px; margin-bottom: 2.5rem; }
         
-        .btn-main { padding: 12px 30px; background: var(--accent); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s; box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3); }
-        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(139, 92, 246, 0.5); }
+        .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+        .btn { padding: 14px 32px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: 0.3s; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; }
+        .btn-main { background: var(--accent); color: white; box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2); }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4); }
+        .btn-outline { border: 1px solid rgba(255,255,255,0.2); color: var(--text-primary); }
+        .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--accent); }
 
-        .container { max-width: 1100px; margin: auto; padding: 100px 20px; }
-        h2 { font-size: 2.5rem; margin-bottom: 3rem; position: relative; display: inline-block; }
-        h2::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 60%; height: 4px; background: var(--accent); border-radius: 2px; }
+        .container { max-width: 1100px; margin: auto; padding: 80px 20px; }
+        h2 { font-size: 2.2rem; margin-bottom: 2.5rem; }
+
+        /* Intro / About Section */
+        .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; }
+        .about-text p { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .highlight { color: var(--accent-light); font-weight: 600; }
 
         /* Technical Skills Chips */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .skill-box { background: var(--card); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
-        .skill-box h3 { margin-bottom: 1.5rem; color: var(--accent-light); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; }
-        .chips { display: flex; flex-wrap: wrap; gap: 10px; }
-        .chip { background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; color: var(--accent-light); }
+        .skill-box h3 { margin-bottom: 1.5rem; color: var(--accent-light); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; }
+        .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+        .chip { background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.15); padding: 5px 14px; border-radius: 50px; font-size: 0.8rem; color: var(--accent-light); }
 
-        /* Project Cards - Bento Style */
+        /* Project Cards */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
         .project-card { 
-            background: var(--card); border-radius: 24px; padding: 2rem; border: 1px solid rgba(255,255,255,0.05); 
-            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; color: inherit; display: block;
-            position: relative; overflow: hidden;
+            background: var(--card); border-radius: 24px; padding: 2.2rem; border: 1px solid rgba(255,255,255,0.05); 
+            transition: 0.4s; text-decoration: none; color: inherit; display: block; position: relative;
         }
-        .project-card:hover { transform: translateY(-10px); border-color: var(--accent); background: rgba(17, 24, 39, 0.5); }
-        .project-card i { position: absolute; right: 2rem; top: 2rem; font-size: 1.2rem; color: var(--accent); opacity: 0.5; }
+        .project-card:hover { transform: translateY(-8px); border-color: var(--accent); }
         .project-tag { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; margin-bottom: 1rem; display: block; }
-        .project-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-        .project-card p { color: var(--text-secondary); font-size: 0.95rem; }
+        .project-card h3 { font-size: 1.4rem; margin-bottom: 0.8rem; }
+        .project-card p { color: var(--text-secondary); font-size: 0.9rem; }
+        .project-card i { position: absolute; right: 2rem; top: 2rem; font-size: 1.1rem; opacity: 0.3; }
 
-        /* Education & Stats */
-        .edu-flex { display: flex; gap: 2rem; flex-wrap: wrap; }
-        .edu-card { flex: 1; min-width: 300px; background: linear-gradient(145deg, #111827, #1f2937); padding: 2.5rem; border-radius: 24px; }
-        .cgpa-badge { display: inline-block; padding: 4px 12px; background: #10b981; color: white; border-radius: 6px; font-weight: bold; margin-top: 10px; }
+        /* Education */
+        .edu-flex { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .edu-card { flex: 1; min-width: 300px; background: var(--card); padding: 2rem; border-radius: 20px; border-left: 4px solid var(--accent); }
+        .cgpa { font-weight: 800; color: #10b981; margin-top: 10px; display: block; }
 
-        footer { padding: 4rem 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+        footer { padding: 5rem 0; text-align: center; background: #010409; }
         .social-icons { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
-        .social-icons a { color: var(--text-secondary); font-size: 1.5rem; transition: 0.3s; }
-        .social-icons a:hover { color: var(--accent); transform: scale(1.2); }
+        .social-icons a { color: var(--text-secondary); font-size: 1.4rem; transition: 0.3s; }
+        .social-icons a:hover { color: var(--accent); }
 
-        @media (max-width: 768px) { .container { padding: 60px 20px; } .hero h1 { font-size: 3rem; } }
+        @media (max-width: 768px) { 
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .hero h1 { font-size: 2.8rem; }
+            .nav-links { display: none; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">RISHIKA.S</div>
-        <a href="mailto:rishikasinghal01012005@gmail.com" class="social-icons" style="margin:0; font-size: 1rem; color: white; text-decoration: none;">Get In Touch</a>
+        <a href="#" class="logo">RISHIKA.S</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="Rishika_Singhal_Resume.pdf" target="_blank" style="color: var(--accent); font-weight: 600;">Download CV</a>
+        </div>
     </nav>
 
-    <section class="hero">
-        <h1 data-aos="fade-up">Developer & <br><span style="color: var(--accent);">Problem Solver</span></h1>
-        <p data-aos="fade-up" data-aos-delay="100">CS Engineering Undergraduate at Banasthali Vidyapeeth. Building user-centric applications with a focus on Frontend and Machine Learning.</p>
-        <div data-aos="fade-up" data-aos-delay="200">
-            <a href="#projects" class="btn-main">View My Work</a>
+    <header class="hero">
+        <h1 data-aos="fade-up">Building the future, <br><span style="color: var(--accent);">one line at a time.</span></h1>
+        <p data-aos="fade-up" data-aos-delay="100">Computer Science Engineering student at Banasthali Vidyapeeth. Passionate about creating clean, user-centric web applications and exploring Machine Learning.</p>
+        <div class="cta-group" data-aos="fade-up" data-aos-delay="200">
+            <a href="#projects" class="btn btn-main">Explore Projects</a>
+            <!-- Updated Resume Link -->
+            <a href="Rishika_Singhal_Resume.pdf" target="_blank" class="btn btn-outline">
+                <i class="fas fa-file-pdf"></i> View Resume
+            </a>
         </div>
-    </section>
+    </header>
 
     <div class="container">
         
-        <!-- Skills -->
-        <section id="skills" style="margin-bottom: 100px;">
-            <h2 data-aos="fade-right">Technical Skills</h2>
+        <!-- Detailed Intro Section -->
+        <section id="about" style="margin-bottom: 120px;">
+            <div class="about-grid">
+                <div data-aos="fade-right">
+                    <h2 style="margin-bottom: 1rem;">About Me</h2>
+                    <div style="width: 50px; height: 4px; background: var(--accent); border-radius: 2px;"></div>
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <p>Hello! I'm <span class="highlight">Rishika Singhal</span>, a CS Engineering undergraduate based in Delhi, India. I am currently a student at <span class="highlight">Banasthali Vidyapeeth</span>, where I am maintaining a top-tier <span class="highlight">9.7 CGPA</span>.</p>
+                    <p>I am a keen learner with a focus on <span class="highlight">Front-End Development</span> and <span class="highlight">Machine Learning Integration</span>. I love taking complex technical requirements and turning them into beautiful, responsive, and user-friendly digital experiences.</p>
+                    <p>Whether I'm developing environmental monitoring tools like the <span class="highlight">Ganga River System</span> or AI-powered medical checker apps like <span class="highlight">PinkCare AI</span>, I prioritize building software that is structured, scalable, and impactful.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section id="skills" style="margin-bottom: 120px;">
+            <h2 data-aos="fade-up">My Toolbox</h2>
             <div class="skills-grid">
                 <div class="skill-box" data-aos="fade-up">
-                    <h3>Programming</h3>
+                    <h3>Languages</h3>
                     <div class="chips">
-                        <span class="chip">C</span><span class="chip">C++</span><span class="chip">Python</span><span class="chip">SQL</span>
+                        <span class="chip">C</span><span class="chip">C++</span><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">SQL</span>
                     </div>
                 </div>
                 <div class="skill-box" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Development</h3>
+                    <h3>Web Tech</h3>
                     <div class="chips">
-                        <span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span><span class="chip">Node.js</span><span class="chip">Responsive UI</span>
+                        <span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Node.js</span><span class="chip">Responsive UI</span><span class="chip">DOM Manipulation</span>
                     </div>
                 </div>
                 <div class="skill-box" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Tools & ML</h3>
+                    <h3>Analytics & Tools</h3>
                     <div class="chips">
-                        <span class="chip">Git / GitHub</span><span class="chip">VS Code</span><span class="chip">Model Integration</span><span class="chip">Data Cleaning</span>
+                        <span class="chip">ML Model Integration</span><span class="chip">Data Cleaning</span><span class="chip">Git/GitHub</span><span class="chip">VS Code</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Projects -->
-        <section id="projects">
-            <h2 data-aos="fade-right">Featured Projects</h2>
+        <section id="projects" style="margin-bottom: 120px;">
+            <h2 data-aos="fade-up">Featured Projects</h2>
             <div class="project-grid">
-                
                 <a href="https://github.com/singhalrishika/Ganga-River-Monitoring-System" target="_blank" class="project-card" data-aos="zoom-in">
                     <i class="fab fa-github"></i>
-                    <span class="project-tag">Full Stack</span>
+                    <span class="project-tag">Node.js • Full Stack</span>
                     <h3>Ganga River Monitoring</h3>
-                    <p>Web-based platform to report and monitor water quality. Implemented location-based reporting and observations.</p>
+                    <p>A web platform to report and monitor water quality issues in the Ganga River. Features location-based reporting and observation tracking.</p>
                 </a>
 
                 <a href="https://github.com/singhalrishika/PinkCare-AI" target="_blank" class="project-card" data-aos="zoom-in" data-aos-delay="100">
                     <i class="fab fa-github"></i>
-                    <span class="project-tag">Machine Learning</span>
+                    <span class="project-tag">ML • HTML • CSS</span>
                     <h3>PinkCare AI</h3>
-                    <p>Medical symptom checker predicting diseases using ML. Featuring a custom themed UI and responsive design.</p>
+                    <p>AI-driven symptom checker predicting diseases with ML. Customized with a themed, responsive UI for enhanced user interaction.</p>
                 </a>
 
                 <a href="https://github.com/singhalrishika/ExpenseSharingApp" target="_blank" class="project-card" data-aos="zoom-in" data-aos-delay="200">
                     <i class="fab fa-github"></i>
-                    <span class="project-tag">Web App</span>
-                    <h3>Expense Sharing System</h3>
-                    <p>Automated interface for group expense calculations using DOM manipulation and form validation.</p>
+                    <span class="project-tag">JavaScript • Logic</span>
+                    <h3>Expense Sharing Website</h3>
+                    <p>An automated interface for group expense calculations. Focused on structured UI workflows and smooth DOM manipulation.</p>
                 </a>
-
-                <a href="https://github.com/singhalrishika/RishikaRecipieHub" target="_blank" class="project-card" data-aos="zoom-in" data-aos-delay="300">
-                    <i class="fab fa-github"></i>
-                    <span class="project-tag">API Integration</span>
-                    <h3>Recipe Search Hub</h3>
-                    <p>Modern search web app with detailed recipe displays and third-party API integration for real-time data.</p>
-                </a>
-
             </div>
         </section>
 
         <!-- Education -->
-        <section id="education" style="margin-top: 100px;">
-            <h2 data-aos="fade-right">Education</h2>
+        <section id="education">
+            <h2 data-aos="fade-up">Education</h2>
             <div class="edu-flex">
                 <div class="edu-card" data-aos="fade-up">
                     <p style="color: var(--accent); font-weight: bold; margin-bottom: 0.5rem;">2024 — 2028</p>
-                    <h3>Banasthali Vidyapeeth</h3>
+                    <h3>Banasthali Vidyapeeth, Rajasthan</h3>
                     <p>B.Tech in Computer Science Engineering</p>
-                    <div class="cgpa-badge">CGPA: 9.7</div>
+                    <span class="cgpa">Academic Grade: 9.7 CGPA</span>
                 </div>
                 <div class="edu-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Schooling (CBSE)</h3>
+                    <h3>CBSE Schooling</h3>
                     <p>Class XII: 93%</p>
                     <p>Class X: 94%</p>
-                    <div style="margin-top: 20px; font-size: 0.8rem; opacity: 0.6;">Delhi, India</div>
+                    <p style="margin-top: 15px; font-size: 0.8rem; color: var(--text-secondary);">Strong focus on Science and Analytics.</p>
                 </div>
             </div>
         </section>
@@ -177,9 +205,16 @@
             <a href="https://linkedin.com/in/rishika115" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="mailto:rishikasinghal01012005@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p style="color: var(--text-secondary); font-size: 0.9rem;">&copy; 2024 Rishika Singhal. All project links lead to repositories.</p>
+        <div style="margin-bottom: 2rem;">
+            <!-- Footer Resume Link -->
+            <a href="Rishika_Singhal_Resume.pdf" target="_blank" class="btn btn-outline" style="font-size: 0.8rem;">
+                <i class="fas fa-download"></i> Download Full Resume
+            </a>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 0.85rem;">Designed and Developed by Rishika Singhal &copy; 2024</p>
     </footer>
 
+    <!-- Initialize AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true, offset: 100 });
