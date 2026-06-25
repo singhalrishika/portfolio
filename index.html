@@ -3,196 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rishika Singhal | Developer Portfolio</title>
+    <title>Rishika Singhal | Software Engineer</title>
     
-    <!-- Libraries for Dynamic Effects -->
+    <!-- Design Libraries -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
     <style>
         :root {
-            --bg: #030712;
-            --card: #111827;
-            --accent: #8b5cf6;
-            --accent-light: #c4b5fd;
-            --text-primary: #f9fafb;
-            --text-secondary: #9ca3af;
+            --primary: #a29bfe;
+            --secondary: #6c5ce7;
+            --bg: #050505;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--bg); color: var(--text-primary); line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body { background-color: var(--bg); color: #fff; overflow-x: hidden; scroll-behavior: smooth; }
+
+        /* Animated Background */
+        .bg-glow {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(108, 92, 231, 0.1) 0%, transparent 50%);
+            z-index: -1; pointer-events: none;
+        }
 
         /* Navigation */
-        nav { padding: 1.2rem 10%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; background: rgba(3, 7, 18, 0.8); backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .logo { font-weight: 800; font-size: 1.4rem; color: var(--accent); text-decoration: none; }
-        .nav-links a { color: var(--text-secondary); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent); }
+        nav {
+            position: fixed; width: 100%; padding: 25px 10%;
+            display: flex; justify-content: space-between; align-items: center;
+            backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid var(--glass-border);
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(to right, #a29bfe, #6c5ce7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links a { color: #ccc; text-decoration: none; margin-left: 30px; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
 
         /* Hero Section */
-        .hero { height: 90vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 20px; background: radial-gradient(circle at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%); }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; letter-spacing: -2px; margin-bottom: 1rem; line-height: 1.1; }
-        .hero p { font-size: 1.2rem; color: var(--text-secondary); max-width: 650px; margin-bottom: 2.5rem; }
-        
-        .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-        .btn { padding: 14px 32px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: 0.3s; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; }
-        .btn-main { background: var(--accent); color: white; box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2); }
-        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4); }
-        .btn-outline { border: 1px solid rgba(255,255,255,0.2); color: var(--text-primary); }
-        .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--accent); }
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+        .hero h2 { font-size: 1.2rem; color: var(--primary); letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; }
+        .hero h1 { font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; line-height: 1; margin-bottom: 20px; }
+        .typing-wrap { font-size: 1.5rem; color: #aaa; margin-bottom: 40px; }
 
-        .container { max-width: 1100px; margin: auto; padding: 80px 20px; }
-        h2 { font-size: 2.2rem; margin-bottom: 2.5rem; }
-
-        /* Intro / About Section */
-        .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; }
-        .about-text p { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
-        .highlight { color: var(--accent-light); font-weight: 600; }
-
-        /* Technical Skills Chips */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .skill-box { background: var(--card); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
-        .skill-box h3 { margin-bottom: 1.5rem; color: var(--accent-light); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; }
-        .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-        .chip { background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.15); padding: 5px 14px; border-radius: 50px; font-size: 0.8rem; color: var(--accent-light); }
-
-        /* Project Cards */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
-        .project-card { 
-            background: var(--card); border-radius: 24px; padding: 2.2rem; border: 1px solid rgba(255,255,255,0.05); 
-            transition: 0.4s; text-decoration: none; color: inherit; display: block; position: relative;
+        /* Buttons */
+        .cta-btns { display: flex; gap: 20px; }
+        .btn {
+            padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700;
+            transition: 0.4s; position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 10px;
         }
-        .project-card:hover { transform: translateY(-8px); border-color: var(--accent); }
-        .project-tag { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; margin-bottom: 1rem; display: block; }
-        .project-card h3 { font-size: 1.4rem; margin-bottom: 0.8rem; }
-        .project-card p { color: var(--text-secondary); font-size: 0.9rem; }
-        .project-card i { position: absolute; right: 2rem; top: 2rem; font-size: 1.1rem; opacity: 0.3; }
+        .btn-primary { background: var(--secondary); color: white; box-shadow: 0 10px 30px rgba(108, 92, 231, 0.4); }
+        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(108, 92, 231, 0.6); }
+        .btn-outline { border: 1px solid var(--glass-border); color: white; backdrop-filter: blur(10px); }
+        .btn-outline:hover { background: var(--glass); border-color: var(--primary); }
 
-        /* Education */
-        .edu-flex { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-        .edu-card { flex: 1; min-width: 300px; background: var(--card); padding: 2rem; border-radius: 20px; border-left: 4px solid var(--accent); }
-        .cgpa { font-weight: 800; color: #10b981; margin-top: 10px; display: block; }
+        .container { max-width: 1200px; margin: auto; padding: 100px 20px; }
 
-        footer { padding: 5rem 0; text-align: center; background: #010409; }
-        .social-icons { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
-        .social-icons a { color: var(--text-secondary); font-size: 1.4rem; transition: 0.3s; }
-        .social-icons a:hover { color: var(--accent); }
+        /* Glass Section Style */
+        .section-header { margin-bottom: 60px; }
+        .section-header h3 { font-size: 2.5rem; font-weight: 800; }
+        .line { width: 60px; height: 4px; background: var(--secondary); margin-top: 10px; border-radius: 2px; }
 
-        @media (max-width: 768px) { 
-            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .hero h1 { font-size: 2.8rem; }
-            .nav-links { display: none; }
+        /* Projects Grid */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .project-card {
+            background: var(--glass); border: 1px solid var(--glass-border); border-radius: 30px;
+            padding: 40px; transition: 0.5s; text-decoration: none; color: inherit;
+            position: relative; overflow: hidden;
+        }
+        .project-card:hover { 
+            background: rgba(108, 92, 231, 0.05); border-color: var(--primary); transform: translateY(-10px);
+        }
+        .project-card i { font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; display: block; }
+        .project-card h4 { font-size: 1.6rem; margin-bottom: 15px; }
+        .project-card p { color: #999; line-height: 1.8; margin-bottom: 20px; }
+        .tech-tags span { font-size: 0.7rem; background: rgba(255,255,255,0.05); padding: 5px 12px; border-radius: 15px; margin-right: 5px; border: 1px solid var(--glass-border); }
+
+        /* Skills Bento */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 15px; }
+        .skill-tag { background: var(--glass); padding: 12px 25px; border-radius: 15px; border: 1px solid var(--glass-border); transition: 0.3s; }
+        .skill-tag:hover { background: var(--secondary); border-color: var(--secondary); }
+
+        /* Stats/Education Section */
+        .edu-card { background: var(--glass); padding: 40px; border-radius: 30px; border: 1px solid var(--glass-border); margin-bottom: 20px; }
+        .cgpa { font-size: 3rem; font-weight: 900; color: var(--primary); }
+
+        footer { text-align: center; padding: 100px 20px; border-top: 1px solid var(--glass-border); }
+        .socials { margin-bottom: 30px; }
+        .socials a { font-size: 1.5rem; color: #fff; margin: 0 20px; transition: 0.3s; }
+        .socials a:hover { color: var(--primary); transform: scale(1.2); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            .cta-btns { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
+    <div class="bg-glow"></div>
+
     <nav>
-        <a href="#" class="logo">RISHIKA.S</a>
+        <div class="logo">RS.</div>
         <div class="nav-links">
             <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="Rishika_Singhal_Resume.pdf" target="_blank" style="color: var(--accent); font-weight: 600;">Download CV</a>
+            <a href="#projects">Work</a>
+            <!-- Case sensitive link to your PDF -->
+            <a href="Rishika_Singhal_Resume.pdf" target="_blank" style="color: var(--primary); font-weight: bold;">Resume</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <h1 data-aos="fade-up">Building the future, <br><span style="color: var(--accent);">one line at a time.</span></h1>
-        <p data-aos="fade-up" data-aos-delay="100">Computer Science Engineering student at Banasthali Vidyapeeth. Passionate about creating clean, user-centric web applications and exploring Machine Learning.</p>
-        <div class="cta-group" data-aos="fade-up" data-aos-delay="200">
-            <a href="#projects" class="btn btn-main">Explore Projects</a>
-            <!-- Updated Resume Link -->
+    <section class="hero">
+        <h2 data-aos="fade-down">Available for Opportunities</h2>
+        <h1 data-aos="zoom-out">Rishika Singhal</h1>
+        <div class="typing-wrap">
+            I am a <span id="typed"></span>
+        </div>
+        <div class="cta-btns" data-aos="fade-up">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <!-- FIXED RESUME ATTACHMENT -->
             <a href="Rishika_Singhal_Resume.pdf" target="_blank" class="btn btn-outline">
-                <i class="fas fa-file-pdf"></i> View Resume
+                <i class="fas fa-file-download"></i> Download Resume
             </a>
         </div>
-    </header>
+    </section>
 
     <div class="container">
         
-        <!-- Detailed Intro Section -->
-        <section id="about" style="margin-bottom: 120px;">
-            <div class="about-grid">
-                <div data-aos="fade-right">
-                    <h2 style="margin-bottom: 1rem;">About Me</h2>
-                    <div style="width: 50px; height: 4px; background: var(--accent); border-radius: 2px;"></div>
-                </div>
-                <div class="about-text" data-aos="fade-left">
-                    <p>Hello! I'm <span class="highlight">Rishika Singhal</span>, a CS Engineering undergraduate based in Delhi, India. I am currently a student at <span class="highlight">Banasthali Vidyapeeth</span>, where I am maintaining a top-tier <span class="highlight">9.7 CGPA</span>.</p>
-                    <p>I am a keen learner with a focus on <span class="highlight">Front-End Development</span> and <span class="highlight">Machine Learning Integration</span>. I love taking complex technical requirements and turning them into beautiful, responsive, and user-friendly digital experiences.</p>
-                    <p>Whether I'm developing environmental monitoring tools like the <span class="highlight">Ganga River System</span> or AI-powered medical checker apps like <span class="highlight">PinkCare AI</span>, I prioritize building software that is structured, scalable, and impactful.</p>
-                </div>
+        <!-- About Section -->
+        <section id="about" style="margin-bottom: 150px;">
+            <div class="section-header" data-aos="fade-right">
+                <h3>About Me</h3>
+                <div class="line"></div>
+            </div>
+            <div style="font-size: 1.4rem; color: #bbb; max-width: 800px; line-height: 1.6;" data-aos="fade-up">
+                Building digital experiences that combine <span style="color: #fff;">Logic</span> and <span style="color: #fff;">Creativity</span>. 
+                I am a CS student at Banasthali Vidyapeeth with a deep interest in Front-end Engineering and Machine Learning. 
+                Currently maintaining a <span style="color: var(--primary);">9.7 CGPA</span> while building scalable web applications.
             </div>
         </section>
 
-        <!-- Technical Skills -->
-        <section id="skills" style="margin-bottom: 120px;">
-            <h2 data-aos="fade-up">My Toolbox</h2>
-            <div class="skills-grid">
-                <div class="skill-box" data-aos="fade-up">
-                    <h3>Languages</h3>
-                    <div class="chips">
-                        <span class="chip">C</span><span class="chip">C++</span><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">SQL</span>
-                    </div>
-                </div>
-                <div class="skill-box" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Web Tech</h3>
-                    <div class="chips">
-                        <span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Node.js</span><span class="chip">Responsive UI</span><span class="chip">DOM Manipulation</span>
-                    </div>
-                </div>
-                <div class="skill-box" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Analytics & Tools</h3>
-                    <div class="chips">
-                        <span class="chip">ML Model Integration</span><span class="chip">Data Cleaning</span><span class="chip">Git/GitHub</span><span class="chip">VS Code</span>
-                    </div>
-                </div>
+        <!-- Skills Section -->
+        <section id="skills" style="margin-bottom: 150px;">
+            <div class="section-header" data-aos="fade-right">
+                <h3>Technical Toolbox</h3>
+                <div class="line"></div>
+            </div>
+            <div class="skills-container" data-aos="fade-up">
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">C++</div>
+                <div class="skill-tag">JavaScript (ES6+)</div>
+                <div class="skill-tag">Node.js</div>
+                <div class="skill-tag">React (Learning)</div>
+                <div class="skill-tag">SQL</div>
+                <div class="skill-tag">ML Integration</div>
+                <div class="skill-tag">Data Analysis</div>
+                <div class="skill-tag">Git/GitHub</div>
+                <div class="skill-tag">Responsive Design</div>
             </div>
         </section>
 
-        <!-- Projects -->
-        <section id="projects" style="margin-bottom: 120px;">
-            <h2 data-aos="fade-up">Featured Projects</h2>
+        <!-- Projects Section -->
+        <section id="projects" style="margin-bottom: 150px;">
+            <div class="section-header" data-aos="fade-right">
+                <h3>Featured Work</h3>
+                <div class="line"></div>
+            </div>
             <div class="project-grid">
-                <a href="https://github.com/singhalrishika/Ganga-River-Monitoring-System" target="_blank" class="project-card" data-aos="zoom-in">
-                    <i class="fab fa-github"></i>
-                    <span class="project-tag">Node.js • Full Stack</span>
-                    <h3>Ganga River Monitoring</h3>
-                    <p>A web platform to report and monitor water quality issues in the Ganga River. Features location-based reporting and observation tracking.</p>
+                
+                <!-- Ganga River -->
+                <a href="https://github.com/singhalrishika/Ganga-River-Monitoring-System" target="_blank" class="project-card" data-aos="fade-up">
+                    <i class="fas fa-water"></i>
+                    <h4>Ganga River Monitoring</h4>
+                    <p>A high-impact web system designed to track and report water quality issues. Featuring real-time reporting logic.</p>
+                    <div class="tech-tags">
+                        <span>Node.js</span><span>JavaScript</span><span>HTML/CSS</span>
+                    </div>
                 </a>
 
-                <a href="https://github.com/singhalrishika/PinkCare-AI" target="_blank" class="project-card" data-aos="zoom-in" data-aos-delay="100">
-                    <i class="fab fa-github"></i>
-                    <span class="project-tag">ML • HTML • CSS</span>
-                    <h3>PinkCare AI</h3>
-                    <p>AI-driven symptom checker predicting diseases with ML. Customized with a themed, responsive UI for enhanced user interaction.</p>
+                <!-- PinkCare AI -->
+                <a href="https://github.com/singhalrishika/PinkCare-AI" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-robot"></i>
+                    <h4>PinkCare AI</h4>
+                    <p>An intelligent medical assistant that uses ML to predict diseases based on symptoms. Custom Glass-UI design.</p>
+                    <div class="tech-tags">
+                        <span>Machine Learning</span><span>Python</span><span>JS</span>
+                    </div>
                 </a>
 
-                <a href="https://github.com/singhalrishika/ExpenseSharingApp" target="_blank" class="project-card" data-aos="zoom-in" data-aos-delay="200">
-                    <i class="fab fa-github"></i>
-                    <span class="project-tag">JavaScript • Logic</span>
-                    <h3>Expense Sharing Website</h3>
-                    <p>An automated interface for group expense calculations. Focused on structured UI workflows and smooth DOM manipulation.</p>
+                <!-- Expense Sharing -->
+                <a href="https://github.com/singhalrishika/ExpenseSharingApp" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-wallet"></i>
+                    <h4>Expense Sharing App</h4>
+                    <p>Automated financial sharing logic. Streamlined the process of complex group bill splitting.</p>
+                    <div class="tech-tags">
+                        <span>DOM Manipulation</span><span>Logic</span><span>Web</span>
+                    </div>
                 </a>
+
             </div>
         </section>
 
-        <!-- Education -->
+        <!-- Education Section -->
         <section id="education">
-            <h2 data-aos="fade-up">Education</h2>
-            <div class="edu-flex">
-                <div class="edu-card" data-aos="fade-up">
-                    <p style="color: var(--accent); font-weight: bold; margin-bottom: 0.5rem;">2024 — 2028</p>
-                    <h3>Banasthali Vidyapeeth, Rajasthan</h3>
-                    <p>B.Tech in Computer Science Engineering</p>
-                    <span class="cgpa">Academic Grade: 9.7 CGPA</span>
-                </div>
-                <div class="edu-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3>CBSE Schooling</h3>
-                    <p>Class XII: 93%</p>
-                    <p>Class X: 94%</p>
-                    <p style="margin-top: 15px; font-size: 0.8rem; color: var(--text-secondary);">Strong focus on Science and Analytics.</p>
+            <div class="section-header" data-aos="fade-right">
+                <h3>Academic Background</h3>
+                <div class="line"></div>
+            </div>
+            <div class="edu-card" data-aos="zoom-in">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                    <div>
+                        <h4 style="font-size: 1.8rem;">Banasthali Vidyapeeth</h4>
+                        <p style="color: #888;">B.Tech in Computer Science Engineering (2024 - 2028)</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="cgpa">9.7</div>
+                        <p>Current CGPA</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -200,24 +227,26 @@
     </div>
 
     <footer>
-        <div class="social-icons">
+        <div class="socials">
             <a href="https://github.com/singhalrishika" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://linkedin.com/in/rishika115" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="mailto:rishikasinghal01012005@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <div style="margin-bottom: 2rem;">
-            <!-- Footer Resume Link -->
-            <a href="Rishika_Singhal_Resume.pdf" target="_blank" class="btn btn-outline" style="font-size: 0.8rem;">
-                <i class="fas fa-download"></i> Download Full Resume
-            </a>
-        </div>
-        <p style="color: var(--text-secondary); font-size: 0.85rem;">Designed and Developed by Rishika Singhal &copy; 2024</p>
+        <p style="color: #666; font-size: 0.9rem;">Built by Rishika Singhal &bull; 2024</p>
+        <p style="margin-top: 10px;"><a href="Rishika_Singhal_Resume.pdf" target="_blank" style="color: var(--primary); text-decoration: none;">Download Official CV</a></p>
     </footer>
 
-    <!-- Initialize AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true, offset: 100 });
+        AOS.init({ duration: 1200, once: true });
+
+        // Typing Animation
+        var typed = new Typed('#typed', {
+            strings: ['Software Engineer', 'ML Enthusiast', 'UI/UX Designer', 'Frontend Specialist'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
+        });
     </script>
 </body>
 </html>
