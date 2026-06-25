@@ -3,223 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rishika Singhal | Software Engineer</title>
+    <title>Rishika Singhal | Developer Portfolio</title>
     
-    <!-- Design Libraries -->
+    <!-- Libraries -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
     <style>
         :root {
-            --primary: #a29bfe;
-            --secondary: #6c5ce7;
-            --bg: #050505;
+            --bg: #020617;
+            --accent: #8b5cf6;
             --glass: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
-        body { background-color: var(--bg); color: #fff; overflow-x: hidden; scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--text-main); overflow-x: hidden; }
 
-        /* Animated Background */
-        .bg-glow {
+        /* Animated Gradient Background */
+        .gradient-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(108, 92, 231, 0.1) 0%, transparent 50%);
-            z-index: -1; pointer-events: none;
+            background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+            z-index: -1;
         }
 
-        /* Navigation */
+        /* Nav Bar */
         nav {
-            position: fixed; width: 100%; padding: 25px 10%;
+            position: fixed; width: 100%; padding: 20px 8%;
             display: flex; justify-content: space-between; align-items: center;
-            backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px); z-index: 1000; border-bottom: 1px solid var(--glass-border);
         }
-        .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(to right, #a29bfe, #6c5ce7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .nav-links a { color: #ccc; text-decoration: none; margin-left: 30px; font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
+        .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(to right, #8b5cf6, #d946ef); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links a { color: var(--text-dim); text-decoration: none; margin-left: 30px; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active-link { color: var(--accent); }
 
-        /* Hero Section */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
-        .hero h2 { font-size: 1.2rem; color: var(--primary); letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; }
-        .hero h1 { font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; line-height: 1; margin-bottom: 20px; }
-        .typing-wrap { font-size: 1.5rem; color: #aaa; margin-bottom: 40px; }
-
-        /* Buttons */
-        .cta-btns { display: flex; gap: 20px; }
-        .btn {
-            padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700;
-            transition: 0.4s; position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 10px;
-        }
-        .btn-primary { background: var(--secondary); color: white; box-shadow: 0 10px 30px rgba(108, 92, 231, 0.4); }
-        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(108, 92, 231, 0.6); }
-        .btn-outline { border: 1px solid var(--glass-border); color: white; backdrop-filter: blur(10px); }
-        .btn-outline:hover { background: var(--glass); border-color: var(--primary); }
+        /* Hero */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+        .hero h1 { font-size: clamp(3rem, 10vw, 5.5rem); font-weight: 900; letter-spacing: -2px; line-height: 1; }
+        .hero p { font-size: 1.4rem; color: var(--text-dim); margin: 20px 0 40px; }
+        
+        .btn-group { display: flex; gap: 15px; }
+        .btn { padding: 15px 35px; border-radius: 12px; text-decoration: none; font-weight: 700; transition: 0.4s; display: inline-flex; align-items: center; gap: 10px; }
+        .btn-primary { background: var(--accent); color: white; box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3); }
+        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(139, 92, 246, 0.5); }
+        .btn-secondary { border: 1px solid var(--glass-border); color: white; background: var(--glass); }
+        .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: var(--accent); }
 
         .container { max-width: 1200px; margin: auto; padding: 100px 20px; }
+        h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 50px; }
+        h2 span { color: var(--accent); }
 
-        /* Glass Section Style */
-        .section-header { margin-bottom: 60px; }
-        .section-header h3 { font-size: 2.5rem; font-weight: 800; }
-        .line { width: 60px; height: 4px; background: var(--secondary); margin-top: 10px; border-radius: 2px; }
+        /* About Section */
+        .about-box { background: var(--glass); border: 1px solid var(--glass-border); padding: 40px; border-radius: 30px; line-height: 1.8; font-size: 1.1rem; color: var(--text-dim); }
+        .about-box strong { color: var(--text-main); }
 
         /* Projects Grid */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 25px; }
         .project-card {
-            background: var(--glass); border: 1px solid var(--glass-border); border-radius: 30px;
-            padding: 40px; transition: 0.5s; text-decoration: none; color: inherit;
-            position: relative; overflow: hidden;
+            background: var(--glass); border: 1px solid var(--glass-border); border-radius: 24px;
+            padding: 30px; transition: 0.4s; text-decoration: none; color: inherit;
+            display: flex; flex-direction: column; justify-content: space-between;
         }
-        .project-card:hover { 
-            background: rgba(108, 92, 231, 0.05); border-color: var(--primary); transform: translateY(-10px);
-        }
-        .project-card i { font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; display: block; }
-        .project-card h4 { font-size: 1.6rem; margin-bottom: 15px; }
-        .project-card p { color: #999; line-height: 1.8; margin-bottom: 20px; }
-        .tech-tags span { font-size: 0.7rem; background: rgba(255,255,255,0.05); padding: 5px 12px; border-radius: 15px; margin-right: 5px; border: 1px solid var(--glass-border); }
+        .project-card:hover { border-color: var(--accent); transform: translateY(-10px); background: rgba(139, 92, 246, 0.03); }
+        .project-card i { font-size: 2rem; color: var(--accent); margin-bottom: 20px; }
+        .project-card h4 { font-size: 1.4rem; margin-bottom: 15px; }
+        .project-card p { font-size: 0.95rem; color: var(--text-dim); margin-bottom: 20px; flex-grow: 1; }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tags span { font-size: 0.7rem; font-weight: 700; color: var(--accent); background: rgba(139, 92, 246, 0.1); padding: 4px 10px; border-radius: 6px; text-transform: uppercase; }
 
-        /* Skills Bento */
-        .skills-container { display: flex; flex-wrap: wrap; gap: 15px; }
-        .skill-tag { background: var(--glass); padding: 12px 25px; border-radius: 15px; border: 1px solid var(--glass-border); transition: 0.3s; }
-        .skill-tag:hover { background: var(--secondary); border-color: var(--secondary); }
+        /* Skills */
+        .skills-wrap { display: flex; flex-wrap: wrap; gap: 12px; }
+        .skill-item { background: var(--glass); border: 1px solid var(--glass-border); padding: 10px 20px; border-radius: 12px; font-weight: 600; transition: 0.3s; }
+        .skill-item:hover { background: var(--accent); border-color: var(--accent); transform: scale(1.05); }
 
-        /* Stats/Education Section */
-        .edu-card { background: var(--glass); padding: 40px; border-radius: 30px; border: 1px solid var(--glass-border); margin-bottom: 20px; }
-        .cgpa { font-size: 3rem; font-weight: 900; color: var(--primary); }
+        /* Education */
+        .edu-card { background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0)); padding: 40px; border-radius: 30px; border: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .cgpa-circle { width: 100px; height: 100px; border-radius: 50%; border: 4px solid var(--accent); display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; background: rgba(139, 92, 246, 0.1); }
 
-        footer { text-align: center; padding: 100px 20px; border-top: 1px solid var(--glass-border); }
-        .socials { margin-bottom: 30px; }
-        .socials a { font-size: 1.5rem; color: #fff; margin: 0 20px; transition: 0.3s; }
-        .socials a:hover { color: var(--primary); transform: scale(1.2); }
+        footer { text-align: center; padding: 80px 20px; border-top: 1px solid var(--glass-border); }
+        .socials { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; }
+        .socials a { font-size: 1.8rem; color: var(--text-dim); transition: 0.3s; }
+        .socials a:hover { color: var(--accent); transform: translateY(-5px); }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 3.5rem; }
-            .cta-btns { flex-direction: column; width: 100%; }
-            .btn { width: 100%; justify-content: center; }
+            .btn-group { flex-direction: column; width: 100%; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-glow"></div>
+    <div class="gradient-bg"></div>
 
     <nav>
-        <div class="logo">RS.</div>
+        <div class="logo">RISHIKA.S</div>
         <div class="nav-links">
             <a href="#about">About</a>
-            <a href="#projects">Work</a>
-            <!-- Case sensitive link to your PDF -->
-            <a href="Rishika_Singhal_Resume.pdf" target="_blank" style="color: var(--primary); font-weight: bold;">Resume</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="Rishika_Singhal_Resume.pdf" target="_blank" style="color: var(--accent); font-weight: bold;">Resume PDF</a>
         </div>
     </nav>
 
-    <section class="hero">
-        <h2 data-aos="fade-down">Available for Opportunities</h2>
-        <h1 data-aos="zoom-out">Rishika Singhal</h1>
-        <div class="typing-wrap">
-            I am a <span id="typed"></span>
-        </div>
-        <div class="cta-btns" data-aos="fade-up">
-            <a href="#projects" class="btn btn-primary">View Projects</a>
-            <!-- FIXED RESUME ATTACHMENT -->
-            <a href="Rishika_Singhal_Resume.pdf" target="_blank" class="btn btn-outline">
-                <i class="fas fa-file-download"></i> Download Resume
+    <header class="hero">
+        <h1 data-aos="fade-up">Rishika Singhal</h1>
+        <p data-aos="fade-up" data-aos-delay="100">I'm a <span id="typed"></span></p>
+        <div class="btn-group" data-aos="fade-up" data-aos-delay="200">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <!-- Corrected Resume Path -->
+            <a href="Rishika_Singhal_Resume.pdf" target="_blank" class="btn btn-secondary">
+                <i class="fas fa-file-alt"></i> Download Resume
             </a>
         </div>
-    </section>
+    </header>
 
     <div class="container">
         
-        <!-- About Section -->
-        <section id="about" style="margin-bottom: 150px;">
-            <div class="section-header" data-aos="fade-right">
-                <h3>About Me</h3>
-                <div class="line"></div>
-            </div>
-            <div style="font-size: 1.4rem; color: #bbb; max-width: 800px; line-height: 1.6;" data-aos="fade-up">
-                Building digital experiences that combine <span style="color: #fff;">Logic</span> and <span style="color: #fff;">Creativity</span>. 
-                I am a CS student at Banasthali Vidyapeeth with a deep interest in Front-end Engineering and Machine Learning. 
-                Currently maintaining a <span style="color: var(--primary);">9.7 CGPA</span> while building scalable web applications.
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" style="margin-bottom: 150px;">
-            <div class="section-header" data-aos="fade-right">
-                <h3>Technical Toolbox</h3>
-                <div class="line"></div>
-            </div>
-            <div class="skills-container" data-aos="fade-up">
-                <div class="skill-tag">Python</div>
-                <div class="skill-tag">C++</div>
-                <div class="skill-tag">JavaScript (ES6+)</div>
-                <div class="skill-tag">Node.js</div>
-                <div class="skill-tag">React (Learning)</div>
-                <div class="skill-tag">SQL</div>
-                <div class="skill-tag">ML Integration</div>
-                <div class="skill-tag">Data Analysis</div>
-                <div class="skill-tag">Git/GitHub</div>
-                <div class="skill-tag">Responsive Design</div>
+        <!-- Detailed Intro -->
+        <section id="about" style="margin-bottom: 120px;">
+            <h2 data-aos="fade-right">About <span>Me</span></h2>
+            <div class="about-box" data-aos="fade-up">
+                <p>
+                    I am a Computer Science Engineering undergraduate at <strong>Banasthali Vidyapeeth</strong> with a passion for building 
+                    user-centric digital solutions. Based in <strong>Delhi, India</strong>, I specialize in <strong>Front-end Development</strong> 
+                    and <strong>Machine Learning Integration</strong>. I am a keen learner, constantly exploring modern technologies to build 
+                    scalable and responsive web applications. My academic journey is marked by a strong technical foundation and a 
+                    consistent <strong>9.7 CGPA</strong>.
+                </p>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" style="margin-bottom: 150px;">
-            <div class="section-header" data-aos="fade-right">
-                <h3>Featured Work</h3>
-                <div class="line"></div>
+        <!-- Technical Skills -->
+        <section id="skills" style="margin-bottom: 120px;">
+            <h2 data-aos="fade-right">Technical <span>Stack</span></h2>
+            <div class="skills-wrap" data-aos="fade-up">
+                <div class="skill-item">C++</div>
+                <div class="skill-item">Python</div>
+                <div class="skill-item">JavaScript (ES6+)</div>
+                <div class="skill-item">Node.js</div>
+                <div class="skill-item">HTML5 / CSS3</div>
+                <div class="skill-item">SQL</div>
+                <div class="skill-item">Machine Learning</div>
+                <div class="skill-item">Git / GitHub</div>
+                <div class="skill-item">Responsive UI</div>
+                <div class="skill-item">Data Analytics</div>
             </div>
+        </section>
+
+        <!-- ALL 5 PROJECTS -->
+        <section id="projects" style="margin-bottom: 120px;">
+            <h2 data-aos="fade-right">Featured <span>Projects</span></h2>
             <div class="project-grid">
                 
-                <!-- Ganga River -->
+                <!-- Project 1 -->
                 <a href="https://github.com/singhalrishika/Ganga-River-Monitoring-System" target="_blank" class="project-card" data-aos="fade-up">
-                    <i class="fas fa-water"></i>
-                    <h4>Ganga River Monitoring</h4>
-                    <p>A high-impact web system designed to track and report water quality issues. Featuring real-time reporting logic.</p>
-                    <div class="tech-tags">
-                        <span>Node.js</span><span>JavaScript</span><span>HTML/CSS</span>
+                    <div>
+                        <i class="fas fa-tint"></i>
+                        <h4>Ganga River Monitoring</h4>
+                        <p>Web platform to report and monitor water quality. Features a reporting system for location-based observations.</p>
                     </div>
+                    <div class="tags"><span>Node.js</span><span>JS</span><span>HTML/CSS</span></div>
                 </a>
 
-                <!-- PinkCare AI -->
+                <!-- Project 2 -->
                 <a href="https://github.com/singhalrishika/PinkCare-AI" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-robot"></i>
-                    <h4>PinkCare AI</h4>
-                    <p>An intelligent medical assistant that uses ML to predict diseases based on symptoms. Custom Glass-UI design.</p>
-                    <div class="tech-tags">
-                        <span>Machine Learning</span><span>Python</span><span>JS</span>
+                    <div>
+                        <i class="fas fa-heartbeat"></i>
+                        <h4>PinkCare AI</h4>
+                        <p>Medical symptom checker using ML to predict diseases. Features a customized pink-purple themed responsive UI.</p>
                     </div>
+                    <div class="tags"><span>ML</span><span>Python</span><span>JS</span></div>
                 </a>
 
-                <!-- Expense Sharing -->
+                <!-- Project 3 -->
                 <a href="https://github.com/singhalrishika/ExpenseSharingApp" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-wallet"></i>
-                    <h4>Expense Sharing App</h4>
-                    <p>Automated financial sharing logic. Streamlined the process of complex group bill splitting.</p>
-                    <div class="tech-tags">
-                        <span>DOM Manipulation</span><span>Logic</span><span>Web</span>
+                    <div>
+                        <i class="fas fa-calculator"></i>
+                        <h4>Expense Sharing App</h4>
+                        <p>Automated expense calculator with DOM manipulation and form validation for group bill splitting.</p>
                     </div>
+                    <div class="tags"><span>JavaScript</span><span>UI/UX</span></div>
+                </a>
+
+                <!-- Project 4 -->
+                <a href="https://github.com/singhalrishika/RishikaRecipieHub" target="_blank" class="project-card" data-aos="fade-up">
+                    <div>
+                        <i class="fas fa-utensils"></i>
+                        <h4>Rishika Recipe Hub</h4>
+                        <p>Search-based web app with modern interface, API integration, and detailed recipe display functionality.</p>
+                    </div>
+                    <div class="tags"><span>API Integration</span><span>JS</span><span>CSS</span></div>
+                </a>
+
+                <!-- Project 5 -->
+                <a href="https://github.com/singhalrishika/DeafMuteSOS" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <i class="fas fa-emergency"></i>
+                        <h4>SOS Simulation</h4>
+                        <p>Interactive alert-based simulation platform with mobile-friendly layout and custom animations.</p>
+                    </div>
+                    <div class="tags"><span>Animations</span><span>Mobile-Ready</span></div>
                 </a>
 
             </div>
         </section>
 
-        <!-- Education Section -->
+        <!-- Education -->
         <section id="education">
-            <div class="section-header" data-aos="fade-right">
-                <h3>Academic Background</h3>
-                <div class="line"></div>
-            </div>
+            <h2 data-aos="fade-right">Academic <span>Success</span></h2>
             <div class="edu-card" data-aos="zoom-in">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-                    <div>
-                        <h4 style="font-size: 1.8rem;">Banasthali Vidyapeeth</h4>
-                        <p style="color: #888;">B.Tech in Computer Science Engineering (2024 - 2028)</p>
-                    </div>
-                    <div style="text-align: right;">
-                        <div class="cgpa">9.7</div>
-                        <p>Current CGPA</p>
-                    </div>
+                <div>
+                    <h3>Banasthali Vidyapeeth</h3>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 10px;">B.Tech - Computer Science Engineering (2024 - 2028)</p>
+                    <p style="color: var(--text-dim);">Class XII: 93% | Class X: 94%</p>
+                </div>
+                <div class="cgpa-circle">
+                    <span style="font-size: 1.5rem;">9.7</span>
+                    <span style="font-size: 0.6rem; color: var(--text-dim);">CGPA</span>
                 </div>
             </div>
         </section>
@@ -232,17 +236,16 @@
             <a href="https://linkedin.com/in/rishika115" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="mailto:rishikasinghal01012005@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p style="color: #666; font-size: 0.9rem;">Built by Rishika Singhal &bull; 2024</p>
-        <p style="margin-top: 10px;"><a href="Rishika_Singhal_Resume.pdf" target="_blank" style="color: var(--primary); text-decoration: none;">Download Official CV</a></p>
+        <p style="color: var(--text-dim);">&copy; 2024 Rishika Singhal. Built with passion.</p>
+        <p style="margin-top: 15px;"><a href="Rishika_Singhal_Resume.pdf" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.8rem;">View Detailed CV</a></p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1200, once: true });
 
-        // Typing Animation
         var typed = new Typed('#typed', {
-            strings: ['Software Engineer', 'ML Enthusiast', 'UI/UX Designer', 'Frontend Specialist'],
+            strings: ['Computer Science Engineer', 'Front-end Developer', 'Machine Learning Enthusiast', 'Problem Solver'],
             typeSpeed: 50,
             backSpeed: 30,
             loop: true
